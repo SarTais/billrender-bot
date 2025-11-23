@@ -6,3 +6,4 @@ class Settings:
     google_sheet_id: str
     google_credentials_file: str
     apartment_name: str
+    currency: str = "USD"
