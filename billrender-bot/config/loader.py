@@ -10,4 +10,5 @@ def load_settings() -> Settings:
         google_sheet_id=os.getenv("GOOGLE_SHEET_ID", ""),
         google_credentials_file=os.getenv("GOOGLE_SERVICE_ACCOUNT_FILE", "./data/google-credentials.json"),
         apartment_name=os.getenv("APARTMENT_NAME", "My Apartment"),
+        currency=os.getenv("CURRENCY", "USD")
     )
