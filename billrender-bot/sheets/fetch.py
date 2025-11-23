@@ -174,18 +174,18 @@ def fetch_bill_data(
     heating_price = _parse_money(cell("F", current_row) or "0")
 
     # Trash utilisation price for that month
-    trash_utilisation_price = _parse_money(cell("G", current_row) or "0")
+    trash_utilisation_price = _parse_money(cell("H", current_row) or "0")
 
     # Maintenance + rent
-    maintenance_price = _parse_money(ws.acell("L7").value or "0")
-    rent_price = _parse_money(ws.acell("L8").value or "0")
+    maintenance_price = _parse_money(cell("G", current_row) or "0")
+    rent_price = _parse_money(ws.acell("M9").value or "0")
 
     # Utility meta rows (M3–6, N3–6, O3–6, P3–6)
     def utility_meta(row: int):
-        label = ws.acell(f"N{row}").value or ""
-        unit_price = _parse_money(ws.acell(f"O{row}").value or "0")
-        unit_label = ws.acell(f"P{row}").value or ""
-        fixed_price = _parse_money(ws.acell(f"Q{row}").value or "0")
+        label = ws.acell(f"O{row}").value or ""
+        unit_price = _parse_money(ws.acell(f"P{row}").value or "0")
+        unit_label = ws.acell(f"Q{row}").value or ""
+        fixed_price = _parse_money(ws.acell(f"R{row}").value or "0")
         return label, unit_label, unit_price, fixed_price
 
     gas_label, gas_unit_label, gas_unit_price, gas_fixed_price = utility_meta(3)
